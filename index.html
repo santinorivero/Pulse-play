@@ -1,13 +1,13 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#080d1b">
   <meta name="description" content="PULSE — free daily mind challenges. Train your memory, timing, perception, reflexes and logic.">
-  <meta property="og:title" content="PULSE — Daily Mind Challenges">
+  <meta property="og:title" content="PULSE ARENA — Desafíos mentales diarios">
   <meta property="og:description" content="Five quick challenges. One daily score. Beat your own record.">
-  <title>PULSE — Daily Mind Challenges</title>
+  <title>PULSE ARENA — Desafíos mentales diarios</title>
   <link rel="icon" href="assets/pulse.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
   <script defer src="app.js"></script>
@@ -17,17 +17,17 @@
   <header class="topbar">
     <a class="brand" href="#home" aria-label="PULSE home"><span class="brand-mark">∿</span><span>PULSE</span></a>
     <nav class="desktop-nav" aria-label="Main navigation">
-      <a href="#home" data-page="home">Home</a><a href="#games" data-page="games">Games</a><a href="#arena" data-page="arena">Arena</a><a href="#archive" data-page="archive">Archive</a><a href="#stats" data-page="stats">Stats</a>
+      <a href="#home" data-page="home">Inicio</a><a href="#games" data-page="games">Juegos</a><a href="#arena" data-page="arena">Arena</a><a href="#archive" data-page="archive">Archivo</a><a href="#stats" data-page="stats">Estadísticas</a>
     </nav>
-    <div class="top-actions"><span class="free-pill">✦ Free to play</span><button class="icon-btn" id="profileBtn" aria-label="Profile">◉</button><button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button></div>
+    <div class="top-actions"><span class="free-pill">✦ Gratis</span><button class="icon-btn" id="profileBtn" aria-label="Profile">◉</button><button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button></div>
   </header>
   <main id="app" tabindex="-1">
     <section class="hero page-section" id="home">
       <div class="hero-copy">
-        <p class="eyebrow"><span class="pulse-dot"></span> DAILY MIND CHALLENGES</p>
-        <h1>How sharp is<br>your mind <span>today?</span></h1>
-        <p class="hero-sub">Five quick challenges. One daily score.<br>Compete, improve, and beat your own records.</p>
-        <div class="hero-buttons"><button class="btn btn-primary" id="playDaily">▶ Play Daily Challenge</button><a class="btn btn-ghost" href="#games">Explore games ↗</a></div>
+        <p class="eyebrow"><span class="pulse-dot"></span> DESAFÍOS MENTALES DIARIOS</p>
+        <h1>¿Qué tan ágil está<br>tu mente <span>hoy?</span></h1>
+        <p class="hero-sub">Cinco desafíos. Una puntuación diaria.<br>Competí, mejorá y superá tus récords.</p>
+        <div class="hero-buttons"><button class="btn btn-primary" id="playDaily">▶ Jugar desafío diario</button><a class="btn btn-ghost" href="#games">Explorar juegos ↗</a></div>
         <div class="trust-row"><span>✓ Free forever</span><span>↗ No downloads</span><span>▣ Play anywhere</span></div>
       </div>
       <div class="hero-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="brain">✺</div><div class="floating f1">MEMORY</div><div class="floating f2">FOCUS</div><div class="floating f3">TIMING</div></div>
@@ -40,7 +40,7 @@
     </section>
 
     <section class="section-block" id="modes">
-      <div class="section-title"><div><p class="eyebrow">YOUR NEXT MOVE</p><h2>Choose your mode</h2></div><p class="muted">Play your way. Improve at your pace.</p></div>
+      <div class="section-title"><div><p class="eyebrow">TU PRÓXIMO MOVIMIENTO</p><h2>Elegí tu modo</h2></div><p class="muted">Play your way. Improve at your pace.</p></div>
       <div class="mode-grid">
         <button class="mode-card mode-purple" data-action="daily"><span class="mode-icon">▦</span><span class="mode-title">Daily Challenge</span><span class="mode-desc">The same five games for everyone, every day.</span><span class="mode-arrow">↗</span></button>
         <button class="mode-card mode-cyan" data-action="games"><span class="mode-icon">◉</span><span class="mode-title">Practice Mode</span><span class="mode-desc">Play any game as many times as you want.</span><span class="mode-arrow">↗</span></button>
@@ -50,22 +50,22 @@
     </section>
 
     <section class="section-block" id="games">
-      <div class="section-title"><div><p class="eyebrow">TRAIN YOUR BRAIN</p><h2>Explore the games</h2></div><span class="muted">5 mini-games · Unlimited practice</span></div>
+      <div class="section-title"><div><p class="eyebrow">ENTRENÁ TU MENTE</p><h2>Explorá los juegos</h2></div><span class="muted">5 minijuegos · Práctica ilimitada</span></div>
       <div id="gamesGrid" class="games-grid"></div>
     </section>
 
     <section class="section-block arena-banner" id="arena">
       <div class="arena-copy"><p class="eyebrow">THINK FAST. PLAY TOGETHER.</p><h2>Meet your rivals<br>in <span>PULSE ARENA</span></h2><p>Challenge friends in private rooms or find players for a quick match. Play the same rounds and chase the top spot.</p><div class="arena-facts"><span>♙ 2–8 players</span><span>◉ Simultaneous rounds</span><span>▤ 5 rounds · 500 points</span></div></div>
-      <div class="arena-actions"><button class="btn btn-primary" data-action="arena">Open Arena</button><p class="muted tiny">Online matches need a backend connection to go live.</p></div>
+      <div class="arena-actions"><button class="btn btn-primary" data-action="arena">Abrir Arena</button><p class="muted tiny">Online matches need a backend connection to go live.</p></div>
     </section>
 
     <section class="section-block" id="archive">
-      <div class="section-title"><div><p class="eyebrow">NEVER MISS A CHALLENGE</p><h2>Challenge archive</h2></div><p class="muted">Every date stays available for practice.</p></div>
+      <div class="section-title"><div><p class="eyebrow">NO TE PIERDAS NINGÚN DESAFÍO</p><h2>Archivo de desafíos</h2></div><p class="muted">Every date stays available for practice.</p></div>
       <div class="archive-panel"><div class="archive-controls"><button class="small-btn" id="prevMonth" aria-label="Previous month">←</button><h3 id="archiveMonth">Month</h3><button class="small-btn" id="nextMonth" aria-label="Next month">→</button></div><div class="calendar" id="calendar"></div><div class="calendar-legend"><span><i class="legend-dot done"></i> Played</span><span><i class="legend-dot today"></i> Today</span><span><i class="legend-dot"></i> Available</span></div><div id="archiveSelection" class="archive-selection">Choose a date to play that day's challenge.</div></div>
     </section>
 
     <section class="section-block" id="stats">
-      <div class="section-title"><div><p class="eyebrow">YOUR PROGRESS</p><h2>Small steps. Better scores.</h2></div><span class="muted">Saved on this device</span></div>
+      <div class="section-title"><div><p class="eyebrow">TU PROGRESO</p><h2>Pequeños pasos. Mejores puntuaciones.</h2></div><span class="muted">Saved on this device</span></div>
       <div class="stats-grid"><div class="stat-card"><span class="stat-icon fire">♨</span><p class="muted">Current streak</p><strong id="streakStat">0 days</strong></div><div class="stat-card"><span class="stat-icon crown">♛</span><p class="muted">Best daily score</p><strong id="bestDailyStat">0 pts</strong></div><div class="stat-card"><span class="stat-icon star">★</span><p class="muted">Challenges completed</p><strong id="completedStat">0</strong></div><div class="stat-card"><span class="stat-icon bolt">ϟ</span><p class="muted">Practice sessions</p><strong id="practiceStat">0</strong></div></div>
       <div class="history-panel"><div class="panel-title"><h3>Recent daily scores</h3><span class="muted tiny">Your personal history</span></div><div id="historyList" class="history-list"></div></div>
     </section>

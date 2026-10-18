@@ -1,51 +1,27 @@
-# PULSE — Daily Mind Challenges
+# PULSE ARENA — actualización de juegos
 
-A responsive static starter website for PULSE. It includes five playable mini-games, local progress, a daily challenge dashboard, an archive calendar, practice mode, and a clearly labeled PULSE ARENA interface.
+Sitio estático HTML/CSS/JavaScript, sin dependencias externas.
 
-## What works in this starter
+## Archivos
+- `index.html`: estructura y navegación.
+- `styles.css`: diseño responsive y controles.
+- `app.js`: lógica de los cinco minijuegos, resultados y guardado local.
+- `assets/pulse.svg`: icono original del sitio.
 
-- Responsive design for phones, tablets, and desktop.
-- Color Recall, Time Lock, Size Sense, Reflex Rush, and Pattern Breaker.
-- Practice mode for each game.
-- Daily challenge score tracking (stored in this browser).
-- Archive calendar UI and replay entry point.
-- Personal stats and recent scores, stored in browser localStorage.
-- Arena UI for private rooms and quick match, with honest messages that the backend is not connected.
+## Minijuegos actualizados
+- **Size Sense**: cinco comparaciones por desafío, control de escala proporcional con slider y botones, confirmación bloqueada, medida real/estimada, error proporcional, puntuación y dato contextual. La puntuación usa `100 × exp(-1,25 × |ln(estimación/real)|)`, por lo que el doble y la mitad del valor real dan la misma puntuación.
+- **Time Lock**: duración objetivo visible antes de iniciar, cronometraje oculto con `performance.now()`, detener manualmente, resultados por ronda, dificultad fácil/difícil y selección de 1, 3, 5, 10 o cantidad personalizada (1–20). Cada ronda vale 0–10; el resultado general se normaliza a 0–100 para mantener compatibilidad con la tarjeta diaria existente.
+- **Color Recall, Reflex Rush y Pattern Breaker** siguen incluidos y jugables. Se conservan el archivo, estadísticas y guardado local.
 
-## Important limitations
+## Publicar en GitHub Pages
+1. Descomprimí el ZIP.
+2. En `https://github.com/santinorivero/pulse-play`, pestaña **Code**, reemplazá `index.html`, `styles.css` y `app.js` por los de esta carpeta.
+3. Si `assets/` ya existe, verificá que incluya `pulse.svg`; si no, subí la carpeta `assets`.
+4. Guardá los cambios con **Commit changes**.
+5. Esperá la publicación de GitHub Pages y recargá la web con `Ctrl+F5` en PC. En móvil, recargá o abrí una pestaña privada si sigue apareciendo la versión anterior.
 
-This is **frontend version 0.1**, not the complete online platform yet.
-
-- PULSE ARENA is not live multiplayer. No rooms, matchmaking, synchronized rounds, or server-verified leaderboard exists until a backend is implemented.
-- Progress is stored locally in this browser and does not sync between devices.
-- The historical archive currently reuses the same current game definitions; it does not yet store a permanent unique set of five challenge questions for every date.
-- This is a starter, not a validated production game platform. Test game scoring and improve question sets before public launch.
-- No AdSense code is included. Apply only after the site has enough original content and complies with Google policies.
-
-## Run locally
-
-Open `index.html` in a modern browser. Some browser security settings can behave differently when opening files directly; use a static web server if available.
-
-## Deploy with GitHub Pages from Android
-
-1. Create or open your GitHub repository.
-2. Upload `index.html`, `styles.css`, `app.js`, and the `assets/` folder into the repository root.
-3. Open repository **Settings → Pages**.
-4. Select **Deploy from a branch**, choose branch `main` and folder `/ (root)`, then save.
-5. Wait for GitHub Pages to publish and open the URL it provides.
-
-Do not upload server secrets to GitHub. A static GitHub Pages site cannot run backend functions.
-
-## Next development phase: real online multiplayer
-
-Implement a secure backend (for example Supabase plus server-side functions or another authoritative game server) for:
-- room creation and joining;
-- room membership and authorization;
-- synchronized round start/end;
-- answer submission and server-side scoring;
-- matchmaking queue;
-- reconnect/disconnect handling;
-- final results and leaderboard;
-- database access policies and rate limits.
-
-The server, not browser JavaScript, must be authoritative for competitive scores.
+## Límites conocidos
+- El progreso y los resultados se guardan en `localStorage` del dispositivo.
+- Los desafíos diarios son deterministas por fecha y juego en este navegador; todavía no hay un servidor que garantice sincronización mundial ni valide resultados.
+- Salas privadas, emparejamiento, clasificación global y partidas simultáneas requieren backend y siguen desconectados. No se muestran como partidas online reales.
+- Las siluetas se representan con símbolos emoji del sistema para evitar usar imágenes de terceros sin licencia.
