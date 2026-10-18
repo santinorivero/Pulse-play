@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#080d1b">
+  <meta name="description" content="PULSE — free daily mind challenges. Train your memory, timing, perception, reflexes and logic.">
+  <meta property="og:title" content="PULSE — Daily Mind Challenges">
+  <meta property="og:description" content="Five quick challenges. One daily score. Beat your own record.">
+  <title>PULSE — Daily Mind Challenges</title>
+  <link rel="icon" href="assets/pulse.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <div class="ambient ambient-a"></div><div class="ambient ambient-b"></div>
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="PULSE home"><span class="brand-mark">∿</span><span>PULSE</span></a>
+    <nav class="desktop-nav" aria-label="Main navigation">
+      <a href="#home" data-page="home">Home</a><a href="#games" data-page="games">Games</a><a href="#arena" data-page="arena">Arena</a><a href="#archive" data-page="archive">Archive</a><a href="#stats" data-page="stats">Stats</a>
+    </nav>
+    <div class="top-actions"><span class="free-pill">✦ Free to play</span><button class="icon-btn" id="profileBtn" aria-label="Profile">◉</button><button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button></div>
+  </header>
+  <main id="app" tabindex="-1">
+    <section class="hero page-section" id="home">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="pulse-dot"></span> DAILY MIND CHALLENGES</p>
+        <h1>How sharp is<br>your mind <span>today?</span></h1>
+        <p class="hero-sub">Five quick challenges. One daily score.<br>Compete, improve, and beat your own records.</p>
+        <div class="hero-buttons"><button class="btn btn-primary" id="playDaily">▶ Play Daily Challenge</button><a class="btn btn-ghost" href="#games">Explore games ↗</a></div>
+        <div class="trust-row"><span>✓ Free forever</span><span>↗ No downloads</span><span>▣ Play anywhere</span></div>
+      </div>
+      <div class="hero-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="brain">✺</div><div class="floating f1">MEMORY</div><div class="floating f2">FOCUS</div><div class="floating f3">TIMING</div></div>
+      <aside class="daily-card">
+        <div class="card-head"><div><p class="muted tiny">TODAY'S CHALLENGE</p><h3 id="todayDate">Daily challenge</h3></div><span class="live-pill">● Available</span></div>
+        <div class="progress-track"><span id="dailyProgressBar"></span></div>
+        <div class="progress-label"><span id="dailyProgressText">0 / 5 games completed</span><strong id="dailyTotal">0 / 500</strong></div>
+        <div id="dailyGameList" class="daily-game-list"></div>
+      </aside>
+    </section>
+
+    <section class="section-block" id="modes">
+      <div class="section-title"><div><p class="eyebrow">YOUR NEXT MOVE</p><h2>Choose your mode</h2></div><p class="muted">Play your way. Improve at your pace.</p></div>
+      <div class="mode-grid">
+        <button class="mode-card mode-purple" data-action="daily"><span class="mode-icon">▦</span><span class="mode-title">Daily Challenge</span><span class="mode-desc">The same five games for everyone, every day.</span><span class="mode-arrow">↗</span></button>
+        <button class="mode-card mode-cyan" data-action="games"><span class="mode-icon">◉</span><span class="mode-title">Practice Mode</span><span class="mode-desc">Play any game as many times as you want.</span><span class="mode-arrow">↗</span></button>
+        <button class="mode-card mode-yellow" data-action="archive"><span class="mode-icon">◷</span><span class="mode-title">Challenge Archive</span><span class="mode-desc">Play past daily challenges. No time limit.</span><span class="mode-arrow">↗</span></button>
+        <button class="mode-card mode-pink" data-action="arena"><span class="mode-icon">⚔</span><span class="mode-title">PULSE ARENA <small>ONLINE</small></span><span class="mode-desc">Private rooms and quick match, up to 8 players.</span><span class="mode-arrow">↗</span></button>
+      </div>
+    </section>
+
+    <section class="section-block" id="games">
+      <div class="section-title"><div><p class="eyebrow">TRAIN YOUR BRAIN</p><h2>Explore the games</h2></div><span class="muted">5 mini-games · Unlimited practice</span></div>
+      <div id="gamesGrid" class="games-grid"></div>
+    </section>
+
+    <section class="section-block arena-banner" id="arena">
+      <div class="arena-copy"><p class="eyebrow">THINK FAST. PLAY TOGETHER.</p><h2>Meet your rivals<br>in <span>PULSE ARENA</span></h2><p>Challenge friends in private rooms or find players for a quick match. Play the same rounds and chase the top spot.</p><div class="arena-facts"><span>♙ 2–8 players</span><span>◉ Simultaneous rounds</span><span>▤ 5 rounds · 500 points</span></div></div>
+      <div class="arena-actions"><button class="btn btn-primary" data-action="arena">Open Arena</button><p class="muted tiny">Online matches need a backend connection to go live.</p></div>
+    </section>
+
+    <section class="section-block" id="archive">
+      <div class="section-title"><div><p class="eyebrow">NEVER MISS A CHALLENGE</p><h2>Challenge archive</h2></div><p class="muted">Every date stays available for practice.</p></div>
+      <div class="archive-panel"><div class="archive-controls"><button class="small-btn" id="prevMonth" aria-label="Previous month">←</button><h3 id="archiveMonth">Month</h3><button class="small-btn" id="nextMonth" aria-label="Next month">→</button></div><div class="calendar" id="calendar"></div><div class="calendar-legend"><span><i class="legend-dot done"></i> Played</span><span><i class="legend-dot today"></i> Today</span><span><i class="legend-dot"></i> Available</span></div><div id="archiveSelection" class="archive-selection">Choose a date to play that day's challenge.</div></div>
+    </section>
+
+    <section class="section-block" id="stats">
+      <div class="section-title"><div><p class="eyebrow">YOUR PROGRESS</p><h2>Small steps. Better scores.</h2></div><span class="muted">Saved on this device</span></div>
+      <div class="stats-grid"><div class="stat-card"><span class="stat-icon fire">♨</span><p class="muted">Current streak</p><strong id="streakStat">0 days</strong></div><div class="stat-card"><span class="stat-icon crown">♛</span><p class="muted">Best daily score</p><strong id="bestDailyStat">0 pts</strong></div><div class="stat-card"><span class="stat-icon star">★</span><p class="muted">Challenges completed</p><strong id="completedStat">0</strong></div><div class="stat-card"><span class="stat-icon bolt">ϟ</span><p class="muted">Practice sessions</p><strong id="practiceStat">0</strong></div></div>
+      <div class="history-panel"><div class="panel-title"><h3>Recent daily scores</h3><span class="muted tiny">Your personal history</span></div><div id="historyList" class="history-list"></div></div>
+    </section>
+    <footer><a class="brand footer-brand" href="#home"><span class="brand-mark">∿</span><span>PULSE</span></a><p>Mind · Play · Compete</p><div><a href="#privacy" id="privacyLink">Privacy</a><a href="mailto:hello@example.com">Contact</a></div><small>Free to play. Your local progress stays on this device.</small></footer>
+  </main>
+
+  <div class="modal-backdrop hidden" id="gameModal" role="dialog" aria-modal="true" aria-labelledby="gameTitle">
+    <div class="game-modal"><div class="modal-top"><div><p class="eyebrow" id="gameModeLabel">PRACTICE MODE</p><h2 id="gameTitle">Game</h2></div><button class="icon-btn close-modal" id="closeGame" aria-label="Close game">✕</button></div><p id="gameInstructions" class="muted game-instructions"></p><div id="gameStage" class="game-stage"></div><div class="game-footer"><span id="gameRoundLabel" class="muted tiny"></span><button id="restartGame" class="small-btn">↻ Restart</button></div></div>
+  </div>
+
+  <div class="modal-backdrop hidden" id="arenaModal" role="dialog" aria-modal="true" aria-labelledby="arenaTitle">
+    <div class="game-modal arena-modal"><div class="modal-top"><div><p class="eyebrow">PULSE ARENA</p><h2 id="arenaTitle">Choose your battle</h2></div><button class="icon-btn" id="closeArena" aria-label="Close arena">✕</button></div><p class="muted">Compete in synchronized five-round matches with 2–8 players.</p>
+      <div class="arena-choice-grid"><button class="arena-choice" id="createRoom"><span>＋</span><strong>Create private room</strong><small>Invite friends with a room code</small></button><button class="arena-choice" id="joinRoom"><span>⌁</span><strong>Join private room</strong><small>Enter a room code</small></button><button class="arena-choice" id="quickMatch"><span>⚡</span><strong>Quick match</strong><small>Find other players online</small></button></div>
+      <div id="arenaFeedback" class="arena-feedback">Online matchmaking isn't connected yet. This starter version will not fake real players or matches.</div>
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
